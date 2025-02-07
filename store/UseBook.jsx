@@ -13,8 +13,19 @@ const UseBookProvider = (props) => {
     { title: "The Power of Now", author: "Eckhart Tolle", id: 3 },
     { title: "Deep Work", author: "Cal Newport", id: 4 },
   ]);
+
+  const id = crypto.randomUUID();
+
+  const addBooks = (title, author) => {
+    setBooks([...books, { title, author, id: id }]);
+  };
+  const deleteBook = (id) => {
+    setBooks(books.filter((book) => book.id !== id));
+  };
   return (
-    <UseBook.Provider value={{ books }}>{props.children}</UseBook.Provider>
+    <UseBook.Provider value={{ books, addBooks, deleteBook }}>
+      {props.children}
+    </UseBook.Provider>
   );
 };
 
