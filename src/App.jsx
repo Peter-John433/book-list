@@ -1,14 +1,19 @@
+//global state
+import ThemeProvider from "../store/Theme";
 import UseBookProvider from "../store/UseBook";
+//components
 import Books from "./components/books/Books";
 import Header from "./components/ui/Header";
 
 function App() {
   return (
     <div>
-      <UseBookProvider>
-        <Header />
-        <Books />
-      </UseBookProvider>
+      <ThemeProvider>
+        <UseBookProvider>
+          <Header />
+          <Books />
+        </UseBookProvider>
+      </ThemeProvider>
     </div>
   );
 }

@@ -1,17 +1,16 @@
 import { useContext } from "react";
 import { UseBook } from "../../../store/UseBook";
 import BookLists from "../books/BookLists";
-import Button from "../buttons/Button";
 import Form from "../Form";
+import NoBooks from "./NoBooks";
 
 const Books = () => {
   const { books } = useContext(UseBook);
   return (
     <div className="books">
       <ul>
-        <BookLists books={books} />
+        {books.length ? <BookLists books={books} /> : <NoBooks />}
         <Form />
-        <Button />
       </ul>
     </div>
   );
